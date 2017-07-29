@@ -30,7 +30,9 @@
                             <%= plugin.name %>
                         </a>
                     </strong>
-                    <div class="project-description minor"><%= plugin.description %></div>
+                    <div class="project-description minor">
+						<% if (plugin.description.length >= 20) plugin.description.substr(0, 18) + '...'; else plugin.description; %>
+					</div>
                 </span>
 				</li>
 				<% }) %>

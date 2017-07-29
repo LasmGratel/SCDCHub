@@ -17,10 +17,7 @@ router.get('/', function (req, res, next) {
 							if (typeof(plugins[pluginName]) !== 'object')
 								plugins[pluginName] = {};
 							plugins[pluginName].name = pluginName;
-							if (typeof(reply) === 'object' && Object.keys(reply).length === 1)
-								plugins[pluginName][key] = reply[0];
-							else
-								plugins[pluginName][key] = reply[0];
+							plugins[pluginName][key] = reply[0];
 						});
 					});
 				});
