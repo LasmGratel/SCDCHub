@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>插件Hub - SC D.C.</title>
+	<% include header.ejs %>
+</head>
+<body>
+<% include navbar.ejs %>
+<div class="section container">
+	<h3>插件Hub</h3>
+	<div class="row">
+		<div class="col s8">
+			<ul class="collection">
+				<% console.log((plugins)); %>
+				<% Object.keys(plugins).forEach(function (t) { var plugin = plugins[t];%>
+				<li class="collection-item avatar">
+					<span class="badge">
+                        <i class="fa fa-diamond"></i>
+						<p>当前版本:</p>
+                        <a href="/plugin/<%= plugin.name %>/versions/<%= plugin.version %>">
+                            <strong><%= plugin.version %></strong>
+                        </a>
+                    </span>
+					<!-- Avatar -->
+					<img class="circle" src="<%= plugin.pictureUrl %>">
+					<!-- Title -->
+					<span class="project-title">
+                    <strong>
+                        <a class="" href="/plugin/<%= plugin.name %>">
+                            <%= plugin.name %>
+                        </a>
+                    </strong>
+                    <div class="project-description minor"><%= plugin.description %></div>
+                </span>
+				</li>
+				<% }) %>
+			</ul>
+		</div>
+		<div class="col s4">
+			<div class="collection with-header">
+				<div class="collection-header">
+					<h5>分类</h5>
+				</div>
+				<% Object.keys(categories).forEach(function (category) { %>
+					<div class="collection-item"><%= categories[category] %></div>
+				<% })%>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
